@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.middle.SimpleWeb.entitas.loginRest;
+package com.simple.MidProject.entitas.loginRest;
 
 import lombok.Data;
 
@@ -31,4 +31,3 @@ public class LoginInput {
         this.password = password;
     }
 }
-
