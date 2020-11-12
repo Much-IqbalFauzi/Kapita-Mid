@@ -15,4 +15,12 @@ import lombok.Data;
 public class LoginOutput {
     private UserOutput user;
     private String status;
+
+    public LoginOutput(UserOutput user, String status) {
+        this.user = user;
+        this.status = status;
+    }
+
+    public LoginOutput() {}
+    
 }

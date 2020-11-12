@@ -31,5 +31,24 @@ i {
     transform: translate(-50%, -50%);
 }
 
+.navigation-left {
+    width: 20%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #343a40;
+}
+
+.menu-side{
+    width: 90%;
+    padding: 10px 0;
+}
+
+.menu-side:hover {
+    background-color: bisque;
+    color: #343a40;
+}
+
 
 
