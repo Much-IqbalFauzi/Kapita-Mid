@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Welcome</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" th:href="@{style/style.css}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,32 +17,47 @@ and open the template in the editor.
         <div class="navigation-left px-2">
             <div class="vertical-center">
                 <h3 class="text-white" th:text="${name}"></h3>
-                <button class="menu-side" >Basic Information</button>
+                <button class="menu-side">Basic Information</button>
+                <button class="menu-side">Address</button>
             </div>
         </div>
-        <div id="basicInfo" class="container rounded-lg py-5 vertical-center shadow-lg w-75" style="margin-left: 10%;">
-            <form th:object="${basic}">
+        <div id="basicInfo" class=" container rounded-lg py-5 vertical-center shadow-lg w-75" style="margin-left: 10%;">
+            <form th:action="@{update}" th:object="${basic}" method="POST">
                 <table>
                     <tbody>
                         <tr>
+                            <th>Id</th>
+                            <td><span th:text="*{id}" class="basic_input" type="text" name="" id="name" ></span></td>
+                            <td></td>
+                        </tr>
+                        <tr>
                             <th>Nama</th>
-                            <td th:text="${basic.name}"></td>
+                            <td><input th:field="*{name}" class="basic_input" type="text" name="" id="name" ></td>
+                            <!-- <td><a onclick="enableEdit('name')">edit</a></td> -->
                         </tr>
                         <tr>
                             <th>Gender</th>
-                            <td th:text="${basic.gender}"></td>
+                            <td><input th:field="*{gender}" class="basic_input" type="text" name="" id="gender" ></td>
+                            <!-- <td><a onclick="enableEdit('gender')">edit</a></td> -->
                         </tr>
                         <tr>
-                            <th>Birthday</th>
-                            <td th:text="${basic.birthDate}"></td>
+                            <th>Birthdate</th>
+                            <td><input th:field="*{birthDate}" class="basic_input" type="text" name="" id="birthDate" ></td>
+                            <!-- <td><a onclick="enableEdit('birthDate')">edit</a></td> -->
                         </tr>
                         <tr>
                             <th>Email</th>
-                            <td th:text="${basic.email}"></td>
+                            <td><input th:field="*{email}" class="basic_input" type="text" name="" id="email" ></td>
+                            <!-- <td><a onclick="enableEdit('email')">edit</a></td> -->
                         </tr>
                     </tbody>
                 </table>
+                <button class="btn btn-primary" type="submit" >Save</button>
             </form>
         </div>
+        <div id="address" class="hide container rounded-lg py-5 vertical-center shadow-lg w-75" style="margin-left: 10%;">
+
+        </div>
+        <script th:src="@{script/main.js}"></script>
     </body>
 </html>

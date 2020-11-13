@@ -32,4 +32,9 @@ public class GeneralRestService {
         return user;
     }
     
+    public String basicUpdate(User user) {
+        res.postForObject(uri+"/profile/basic", user, User.class);
+        return "oke";
+    }
+    
 }
