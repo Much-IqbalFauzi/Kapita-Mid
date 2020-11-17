@@ -5,6 +5,7 @@
  */
 package com.simple.MidProject.service;
 
+import com.simple.MidProject.entitas.loginRest.LoginOutput;
 import com.simple.MidProject.entitas.User;
 import com.simple.MidProject.entitas.Address;
 import com.simple.MidProject.entitas.Contact;
@@ -20,6 +21,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -142,6 +145,12 @@ public class GeneralRestService {
             System.out.println(e);
             return false;
         }
+    }
+    
+    public String getUserId(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        LoginOutput data = (LoginOutput)authentication.getPrincipal();
+        return data.getUser().getId();
     }
     
 }

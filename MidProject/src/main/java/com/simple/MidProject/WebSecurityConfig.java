@@ -6,13 +6,12 @@
 package com.simple.MidProject;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -55,8 +54,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and()
 //                .exceptionHandling()
 //                    .accessDeniedHandler(accessHandler);
+
+
         http.authorizeRequests()
-                .antMatchers("/login", "/js/**", "/css/**")
+                .antMatchers("/login", "/js/**", "/css/**", "/script/**", "/style/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -64,16 +65,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .formLogin()
-                .loginPage("login")
-                .loginProcessingUrl("login")
-                .failureUrl("login?error=true")
-                .defaultSuccessUrl("")
+                .loginPage("/login")
+                .loginProcessingUrl("/redirect")
+                .failureUrl("/login?error=true")
+                .defaultSuccessUrl("/welcome")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .and()
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("logout"))
-                .logoutSuccessUrl("login")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login")
                 .and()
                 .exceptionHandling()
                 .accessDeniedPage("/access-denied");

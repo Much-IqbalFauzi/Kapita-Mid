@@ -6,31 +6,33 @@
 
 
 $(document).ready(function() {
+  // var err = [[${error}]]
+
+  // if(err) {
+    
+  //   Swal.fire({
+  //     // position: 'top-end',
+  //     icon: 'error',
+  //     title: 'Not match',
+  //     // showConfirmButton: false,
+  //     // timer: 1500
+  //   }).then(window.location.href="/");
+    
+  // }
+
+  // if(document.getElementById('run-success') !== null) {
+  //   Swal.fire({
+  //     icon: 'success',
+  //     title: 'Success. wait a second',
+  //     showConfirmButton: false,
+  //     timer: 1500
+  //   });
+  //   setTimeout(window.location.href="/welcome", 3000);
+  // }
 
   
-  
-  if(document.getElementById('run-error') !== null) {
-    
-    Swal.fire({
-      // position: 'top-end',
-      icon: 'error',
-      title: 'Not match',
-      // showConfirmButton: false,
-      // timer: 1500
-    }).then(window.location.href="/");
-    
-    
-  }
 
-  if(document.getElementById('run-success') !== null) {
-    Swal.fire({
-      icon: 'success',
-      title: 'Success. wait a second',
-      showConfirmButton: false,
-      timer: 1500
-    });
-    setTimeout(window.location.href="/welcome", 3000);
-  }
+
 });
 
 $(function () {

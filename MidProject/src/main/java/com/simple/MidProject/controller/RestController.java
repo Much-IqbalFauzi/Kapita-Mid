@@ -37,6 +37,10 @@ public class RestController {
     
     UserOutput userOu;
     
+    LoginOutput lo;
+    
+    String id;
+    
     @Autowired LoginRestService serviceLogin;
     
     @Autowired RegisterRestService serviceRegis;
@@ -49,24 +53,20 @@ public class RestController {
     }
     
     @GetMapping("login")
-    public String loginPage(Model model, @RequestParam(value = "error", required = false) String err, @RequestParam(value = "success", required = false) String succ) {
+    public String loginPage(Model model) {
+        
+//         @RequestParam(value = "error", required = false) String err, @RequestParam(value = "success", required = false) String succ
         model.addAttribute("loginInput", new LoginInput());
         model.addAttribute("registerForm", new Register());
         //
         model.addAttribute("universities", serviceGeneral.getAllUniv());
         model.addAttribute("majors", serviceGeneral.getAllMajor());
-        if(err != null ){
-            model.addAttribute("error", true);
-        }
-        if(succ != null) {
-            model.addAttribute("success", true);
-        }
-        return "login";
-    }
-    
-    @GetMapping("xxx")
-    public String iya(@RequestParam(value="user", required=true) Model model) {
-        model.addAttribute("user", "hello");
+//        if(err != null ){
+//            model.addAttribute("error", true);
+//        }
+//        if(succ != null) {
+//            model.addAttribute("success", true);
+//        }
         return "login";
     }
     
@@ -80,22 +80,31 @@ public class RestController {
     }
     
     @PostMapping("redirect")
-    public String redirect(LoginInput input) {
-        if(serviceLogin.login(input).getStatus().equals("Verified")) {
-            userOu = serviceLogin.login(input).getUser();
-            return "redirect:login?success=true";
-        } else {
-            return "redirect:login?error=true";
-        }
+    public String redirect(Model model, @RequestParam("username") String email, @RequestParam("password") String password) {
+        LoginInput login = new LoginInput();
+        login.setEmail(email);
+        login.setPassword(password);
+        lo = serviceLogin.login(login);
+        
+        return "welcome";
+//        if(serviceLogin.login(input).getStatus().equals("Verified")) {
+//            userOu = serviceLogin.login(input).getUser();
+////            return "login?success=true";
+//            return "welcome";
+//        } else {
+//            model.addAttribute("error", "true");
+//            return "login";
+//        }
     }
     
     @GetMapping("welcome")
     public String landingPage(Model model) {
-        model.addAttribute("basic", serviceGeneral.basicId(this.userOu.getId()));
-        model.addAttribute("addressData", serviceGeneral.addressId(this.userOu.getId()));
-        model.addAttribute("contactData", serviceGeneral.contactId(this.userOu.getId()));
-        model.addAttribute("occupData", serviceGeneral.occupationId(this.userOu.getId()));
-        model.addAttribute("eduData", serviceGeneral.eduId(this.userOu.getId()));
+        id = serviceGeneral.getUserId();
+        model.addAttribute("basic", serviceGeneral.basicId(this.id));
+        model.addAttribute("addressData", serviceGeneral.addressId(this.id));
+        model.addAttribute("contactData", serviceGeneral.contactId(this.id));
+        model.addAttribute("occupData", serviceGeneral.occupationId(this.id));
+        model.addAttribute("eduData", serviceGeneral.eduId(this.id));
 //        model.addAttribute("name", serviceGeneral.basicId(this.userOu.getId()).getName());
         //
         model.addAttribute("universities", serviceGeneral.getAllUniv());
@@ -104,8 +113,9 @@ public class RestController {
     }
     
     @PostMapping("updatePersonal")
-    public String basicUpdate(User user) {
+    public String basicUpdate(User user, Model model) {
         serviceGeneral.updateBasic(user);
+        model.addAttribute("success", "true");
         return "redirect:welcome";
     }
     
@@ -135,8 +145,8 @@ public class RestController {
     
     @GetMapping("logout")
     public String logout() {
-        this.userOu = null;
-        return "redirect:login";
+        serviceLogin.logout();
+        return "redirect:";
     }
 }
 
