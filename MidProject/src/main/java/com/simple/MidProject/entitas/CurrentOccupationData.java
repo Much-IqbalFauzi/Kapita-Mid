@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.middle.SimpleWeb.entitas.loginRest;
+package com.simple.MidProject.entitas;
 
 import lombok.Data;
 
@@ -12,7 +12,6 @@ import lombok.Data;
  * @author Much. Iqbal Fauzi
  */
 @Data
-public class LoginOutput {
-    private UserOutput user;
-    private String status;
+public class CurrentOccupationData {
+    private String currentCompany, id, job, website;
 }

@@ -1,0 +1,160 @@
+<div th:fragment="basic" id="basicInfo" class="neon hide grad-border-pr py-5 vertical-center p-3 w-50 myFade-in">
+    <form th:action="@{updatePersonal}" th:object="${basic}" method="POST">
+        <input th:field="*{id}" class="basic_input" type="hidden" readonly="">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th class="text-white">Name</th>
+                    <td><input th:field="*{name}" class="basic_input" type="text" ></td>
+                </tr>
+                <tr>
+                    <th class="text-white">Gender</th>
+                    <td>
+                        <select th:field="*{gender}" class="basic_input" type="text" >
+                            <option th:value="'Laki-laki'" th:text="Laki-laki"/>
+                            <option th:value="'Perempuan'" th:text="Perempuan"/>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-white">Birthdate</th>
+                    <td><input th:field="*{birthDate}" class="basic_input" type="date" ></td>
+                </tr>
+                <tr>
+                    <th class="text-white">Email</th>
+                    <td><input th:field="*{email}" class="basic_input" type="text" ></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" type="submit" >Save</button>
+    </form>
+</div>
+
+
+<div th:fragment="address" id="address" class="neon hide grad-border-pr py-5 vertical-center p-3 w-50 myFade-in">
+    <form th:action="@{updateAddress}" th:object="${addressData}" method="POST">
+        <input th:field="*{id}" class="basic_input" type="hidden" readonly="">
+        <table class="table table-striped ">
+            <tbody>
+                <tr>
+                    <th class="text-white">Provinsi</th>
+                    <td><input th:field="*{province}" class="basic_input" type="text" ></td>
+                </tr>
+                <tr>
+                    <th class="text-white">Kota</th>
+                    <td><input th:field="*{city}" class="basic_input" type="text" ></td>
+                </tr>
+                <tr>
+                    <th class="text-white">Alamat 1</th>
+                    <td><input th:field="*{street1}" class="basic_input" type="text" ></td>
+                </tr>
+                <tr>
+                    <th class="text-white">Alamat 2</th>
+                    <td><input th:field="*{street2}" class="basic_input" type="text" ></td>
+                </tr>
+                <tr>
+                    <th class="text-white">Kode POS</th>
+                    <td><input th:field="*{zipCode}" class="basic_input" type="text" ></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" type="submit" >Save</button>
+    </form>
+</div>
+
+
+<div th:fragment="contact" id="contact" class="neon hide grad-border-pr py-5 vertical-center p-3 w-50 myFade-in">
+    <form th:action="@{updateContact}" th:object="${contactData}" method="POST">
+        <input th:field="*{id}" class="basic_input" type="hidden" readonly="">
+        <table class="table table-striped ">
+            <tbody>
+                <tr>
+                    <th class="text-white">Phone</th>
+                    <td><input th:field="*{phone}" class="basic_input" type="text" ></td>
+                </tr>
+                <tr>
+                    <th class="text-white">Facebook</th>
+                    <td><input th:field="*{facebook}" class="basic_input" type="text" ></td>
+                </tr>
+                <tr>
+                    <th class="text-white">Instagram</th>
+                    <td><input th:field="*{instagram}" class="basic_input" type="text" ></td>
+                </tr>
+                <tr>
+                    <th class="text-white">Linkedin</th>
+                    <td><input th:field="*{linkedin}" class="basic_input" type="text" ></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" type="submit" >Save</button>
+    </form>
+</div>
+
+
+<div th:fragment="occup" id="occup" class="neon hide grad-border-pr py-5 vertical-center p-3 w-50 myFade-in">
+    <form th:action="@{updateOccupation}" th:object="${occupData}" method="POST">
+        <input th:field="*{id}" class="basic_input" type="hidden" readonly="">
+        <table class="table table-striped ">
+            <tbody>
+                <tr>
+                    <th class="text-white">Company</th>
+                    <td><input th:field="*{currentCompany}" class="basic_input" type="text" ></td>
+                </tr>
+                <tr>
+                    <th class="text-white">Job</th>
+                    <td><input th:field="*{job}" class="basic_input" type="text" ></td>
+                </tr>
+                <tr>
+                    <th class="text-white">Website</th>
+                    <td><input th:field="*{website}" class="basic_input" type="text" ></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" type="submit" >Save</button>
+    </form>
+</div>
+
+
+<div th:fragment="edu" id="education" class="neon hide grad-border-pr py-5 vertical-center p-3 w-50 myFade-in">
+    <form th:action="@{updateEducation}" th:object="${eduData}" method="POST">
+        <input th:field="*{id}" class="basic_input" type="hidden" readonly="">
+        <table class="table table-striped ">
+            <tbody>
+                <tr>
+                    <th class="text-white">Tingkatan</th>
+                    <td><input th:field="*{degree}" class="basic_input" type="text" ></td>
+                </tr>
+                <tr>
+                    <th class="text-white">Prodi</th>
+                    <td>
+                        <input th:field="*{major}" class="basic_input" id="majorField" type="text" onkeyup="search_Major()">
+                        <br>
+                        <ul class=" w-50 univ" id="MajorBlock">
+                            <li th:each="x : ${majors}" th:text="${x.name}" class="UnivItem list-group-item" onclick="set_major(this)"></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-white">Status</th>
+                    <td>
+                        <select th:field="*{status}" class="basic_input" type="text" >
+                            <option th:value="'Lulus'" th:text="Lulus"/>
+                            <option th:value="'Belum Lulus'" th:text="'Belum Lulus'"/>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-white">Universitas</th>
+                    <td>
+                        <input th:field="*{university}" class="basic_input" id="universitasField" type="text" onkeyup="search_Univ()">
+                        <br>
+                        <ul class="list-group w-50 univ" id="UnivBlock">
+                            <li th:each="x : ${universities}" th:text="${x.name}" class="UnivItem list-group-item" onclick="set_univ(this)"></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" type="submit" >Save</button>
+    </form>
+</div>

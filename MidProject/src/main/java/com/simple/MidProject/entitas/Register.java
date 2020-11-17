@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.middle.SimpleWeb.entitas.loginRest;
+package com.simple.MidProject.entitas;
 
-import java.util.List;
 import lombok.Data;
 
 /**
@@ -13,8 +12,7 @@ import lombok.Data;
  * @author Much. Iqbal Fauzi
  */
 @Data
-public class UserOutput {
-    private String id, name, email;
-    private List<String> roles;
-}
+public class Register {
+    private String birthDate, currentCompany, degree, email, gender, job, major, name, password, phone, status, university, username;
 
+}

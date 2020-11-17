@@ -1,0 +1,98 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9900;" th:fragment="regisModal">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document" style="width: 900px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form th:action="register" th:object="${registerForm}" id="registerForm" method="POST">
+                    <table class="table-dark table-striped registerTable">
+                        <tbody>
+                            <tr>
+                                <th>Username</th>
+                                <td><input th:field="*{username}" type="text" placeholder="username"></td>
+                            </tr>
+                            <tr>
+                                <th>Password</th>
+                                <td><input th:field="*{password}" type="password" placeholder="password"></td>
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <td><input th:field="*{name}" type="text" placeholder="your name"></td>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <td>
+                                    <select th:field="*{gender}" class="basic_input" type="text" >
+                                        <option th:value="'Laki-laki'" th:text="Laki-laki"/>
+                                        <option th:value="'Perempuan'" th:text="Perempuan"/>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Birthdate</th>
+                                <td><input th:field="*{birthDate}" type="date" placeholder="yyy-mm-dd"></td>
+                            </tr>
+                            <tr>
+                                <th>Phone</th>
+                                <td><input th:field="*{phone}" type="text" placeholder="ex: 082598769876"></td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td><input th:field="*{email}" type="text" placeholder="ex: sample@mail.com"></td>
+                            </tr>
+                            <tr>
+                                <th>Current Company</th>
+                                <td><input th:field="*{currentCompany}" type="text" ></td>
+                            </tr>
+                            <tr>
+                                <th>Job</th>
+                                <td><input th:field="*{job}" type="text" ></td>
+                            </tr>
+                            <tr>
+                                <th>University</th>
+                                <td>
+                                    <input th:field="*{university}" class="basic_input" id="universitasField" type="text" onkeyup="search_Univ()">
+                                    <br>
+                                    <ul class="list-group w-50 univ" id="UnivBlock">
+                                        <li th:each="x : ${universities}" th:text="${x.name}" class="UnivItem list-group-item" onclick="set_univ(this)"></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Major</th>
+                                <td>
+                                    <input th:field="*{major}" class="basic_input" id="majorField" type="text" onkeyup="search_Major()">
+                                    <br>
+                                    <ul class="list-group w-50 univ" id="MajorBlock">
+                                        <li th:each="x : ${majors}" th:text="${x.name}" class="UnivItem list-group-item" onclick="set_major(this)"></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Degree</th>
+                                <td><input th:field="*{degree}" type="text" ></td>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
+                                <td>
+                                    <select th:field="*{status}" class="basic_input" type="text" >
+                                        <option th:value="'Lulus'" th:text="Lulus"/>
+                                        <option th:value="'Belum Lulus'" th:text="'Belum Lulus'"/>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" form="registerForm" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </div>
+</div>

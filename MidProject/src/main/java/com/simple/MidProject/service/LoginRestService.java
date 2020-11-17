@@ -14,6 +14,8 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -29,7 +31,7 @@ public class LoginRestService {
     private String uri;
     
     public LoginOutput login(LoginInput input) {
-        System.out.println(input);
+//        System.out.println(input);
         HttpEntity<LoginInput> request = new HttpEntity<>(input);
         ResponseEntity<LoginOutput> responseEntity = res.exchange(
                 "http://116.254.101.228:8080/ma_test/login",
@@ -40,5 +42,10 @@ public class LoginRestService {
         System.out.println("status :"+responseEntity.getStatusCodeValue());
 //        ResponseEntity<LoginOutput> a = responseEntity;
         return responseEntity.getBody();
+    }
+    
+    public void logout(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        authentication.setAuthenticated(false);
     }
 }

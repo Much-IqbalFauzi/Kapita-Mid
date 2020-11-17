@@ -12,6 +12,8 @@ import lombok.Data;
  * @author Much. Iqbal Fauzi
  */
 @Data
-public class User {
-    private String id, name, birthDate, email, gender;    
+public class University {
+    private int count, id;
+    private String name;
+    private boolean valid;    
 }
