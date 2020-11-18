@@ -15,8 +15,8 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <div class="all-bg">
-            <div class="grad-border-ry rounded-lg py-5 vertical-center myFade-in" style="width: 30%; z-index: 1;">
+        <div class="neumor-bg">
+            <div class="neumorphism py-5 vertical-center myFade-in" style="width: 30%; z-index: 1;">
                 <div class="w-100 row pb-2 mx-auto">
                     <i class="fa mx-auto text-white" style="font-size: 90px;">&#xf2be;</i>
                 </div>
@@ -37,8 +37,11 @@ and open the template in the editor.
                     </div>
                     
                 </form>
-                <div class="row w-100 justify-content-center m-auto mt-3 p-3 text-white">
+                <!-- <div class="row w-100 justify-content-center m-auto mt-3 p-3 text-white">
                     Don't have account? <span class="register"  data-toggle="modal" data-target="#exampleModal"><u>Register here</u></span>
+                </div> -->
+                <div class="row w-100 justify-content-center m-auto mt-3 p-3 text-white">
+                    Don't have account? <a th:href="@{register}" class="register" ><u>Register here</u></a>
                 </div>
                 <!-- <!-- <div th:if="${error}" id="run-error"></div> -->
                 <!-- <div th:if="${success}" id="run-success"></div> -->

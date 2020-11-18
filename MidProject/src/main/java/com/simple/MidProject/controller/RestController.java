@@ -112,6 +112,14 @@ public class RestController {
         return "welcome";
     }
     
+    @GetMapping("register")
+    public String register(Model model) {
+        model.addAttribute("registerForm", new Register());
+        model.addAttribute("universities", serviceGeneral.getAllUniv());
+        model.addAttribute("majors", serviceGeneral.getAllMajor());
+        return "register";
+    }
+    
     @PostMapping("updatePersonal")
     public String basicUpdate(User user, Model model) {
         serviceGeneral.updateBasic(user);
