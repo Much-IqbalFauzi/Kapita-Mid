@@ -30,7 +30,7 @@ public class RegisterRestService {
 //        System.out.println(reg);
 //        HttpEntity<Register> request = new HttpEntity<>(reg);
 //        ResponseEntity<Register> responseEntity = res.exchange(
-//                "http://116.254.101.228:8080/ma_test/register",
+//                "https://116.254.101.228:8080/ma_test/register",
 //                HttpMethod.POST,
 //                request,
 //                new ParameterizedTypeReference<Register>(){}

@@ -69,7 +69,7 @@
                                 <td>
                                     <input th:field="*{university}" class="basic_input" id="universitasField" type="text" onkeyup="search_Univ()">
                                     <br>
-                                    <ul class="list-group w-25 univ" id="UnivBlock">
+                                    <ul class="list-group w-75 univ" id="UnivBlock">
                                         <li th:each="x : ${universities}" th:text="${x.name}" class="UnivItem list-group-item" onclick="set_univ(this)"></li>
                                     </ul>
                                 </td>

@@ -84,7 +84,8 @@ public class RestController {
         LoginInput login = new LoginInput();
         login.setEmail(email);
         login.setPassword(password);
-        lo = serviceLogin.login(login);
+        System.out.println(email);
+//        lo = serviceLogin.login(login);
         
         return "welcome";
 //        if(serviceLogin.login(input).getStatus().equals("Verified")) {

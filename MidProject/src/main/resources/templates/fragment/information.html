@@ -1,4 +1,4 @@
-<div th:fragment="basic" id="basicInfo" class="neumorphism hide grad-border-pr py-5 vertical-center p-3 w-50 myFade-in">
+<div th:fragment="basic" id="basicInfo" class="neumorphism hide py-5 vertical-center p-3 w-50 myFade-in">
     <form th:action="@{updatePersonal}" th:object="${basic}" method="POST">
         <input th:field="*{id}" class="basic_input" type="hidden" readonly="">
         <table class="table table-striped">
@@ -31,7 +31,7 @@
 </div>
 
 
-<div th:fragment="address" id="address" class="neumorphism hide grad-border-pr py-5 vertical-center p-3 w-50 myFade-in">
+<div th:fragment="address" id="address" class="neumorphism hide py-5 vertical-center p-3 w-50 myFade-in">
     <form th:action="@{updateAddress}" th:object="${addressData}" method="POST">
         <input th:field="*{id}" class="basic_input" type="hidden" readonly="">
         <table class="table table-striped ">
@@ -63,7 +63,7 @@
 </div>
 
 
-<div th:fragment="contact" id="contact" class="neumorphism hide grad-border-pr py-5 vertical-center p-3 w-50 myFade-in">
+<div th:fragment="contact" id="contact" class="neumorphism hide py-5 vertical-center p-3 w-50 myFade-in">
     <form th:action="@{updateContact}" th:object="${contactData}" method="POST">
         <input th:field="*{id}" class="basic_input" type="hidden" readonly="">
         <table class="table table-striped ">
@@ -91,7 +91,7 @@
 </div>
 
 
-<div th:fragment="occup" id="occup" class="neumorphism hide grad-border-pr py-5 vertical-center p-3 w-50 myFade-in">
+<div th:fragment="occup" id="occup" class="neumorphism hide py-5 vertical-center p-3 w-50 myFade-in">
     <form th:action="@{updateOccupation}" th:object="${occupData}" method="POST">
         <input th:field="*{id}" class="basic_input" type="hidden" readonly="">
         <table class="table table-striped ">
@@ -115,7 +115,7 @@
 </div>
 
 
-<div th:fragment="edu" id="education" class="neumorphism hide grad-border-pr py-5 vertical-center p-3 w-50 myFade-in">
+<div th:fragment="edu" id="education" class="neumorphism hide py-5 vertical-center p-3 w-50 myFade-in">
     <form th:action="@{updateEducation}" th:object="${eduData}" method="POST">
         <input th:field="*{id}" class="basic_input" type="hidden" readonly="">
         <table class="table table-striped ">
